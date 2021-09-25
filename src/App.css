@@ -44,6 +44,26 @@ body {
     }
 }
 
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+    .logo {
+      width: 300px;
+      height: auto;
+      z-index: 100;
+      margin-top: -10rem;
+    }
+
+    .wave {
+      display: none;
+    }
+    
+    .waves {
+      display: none;
+    }
+}
+
 .wave {
   display: inline-block;
   position: absolute;
