@@ -1,0 +1,76 @@
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 4rem 5vw;
+    padding: 0;
+    list-style-type: none;
+}
+
+.card {
+    position: relative;
+    display: block;
+    height: 100%;  
+    border-radius: 1rem;
+    overflow: hidden;
+    text-decoration: none;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 8px 16px -4px rgba(0,0,0,0.65); 
+    box-shadow: 0px 8px 16px -4px rgba(0,0,0,0.65);
+}
+
+.card:hover {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+h1 {
+    color: white;
+    font-size: 16px;
+}
+
+.title-bg {
+    overflow: hidden;
+}
+
+.card:nth-child(1n+0) .title-bg {
+    background-color: #F5BFD2;
+}
+
+.card:nth-child(2n+0) .title-bg {
+    background-color: #E5DB9C;
+}
+
+.card:nth-child(3n+0) .title-bg {
+    background-color: #D0BCAC;
+}
+
+.card:nth-child(4n+0) .title-bg {
+    background-color: #BEB4C5;
+}
+
+.card:nth-child(5n+0) .title-bg {
+    background-color: #E6A57E;
+}
+
+p {
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 12px;
+}
+
+p:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 8; /* number of lines to show */
+    -webkit-box-orient: vertical;
+    padding-bottom: 4px;
+}
