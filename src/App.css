@@ -19,7 +19,8 @@ body {
 .logo {
   width: 400px;
   height: auto;
-  margin-top: 1rem;
+  z-index: 100;
+  margin-top: -4rem;
 }
 
 .wave {
