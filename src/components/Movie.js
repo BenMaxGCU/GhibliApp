@@ -37,6 +37,8 @@ function Movie({ match }) {
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formattedTitle, filmYear]);
 
+  console.log(data);
+
   return error ? (<></>) 
   : !isLoaded ? (<div className='loaderContainer'><Loader /></div>) : 
   (
