@@ -1,15 +1,15 @@
-.cards {
+.container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(1000px, 1fr));
     gap: 2rem;
-    margin: 4rem 5vw;
+    margin: 4rem 10vw;
     padding: 0;
     list-style-type: none;
 }
 
-.card {
+.film {
     position: relative;
-    display: block;
+    display: flex;
     height: 100%;  
     border-radius: 1rem;
     overflow: hidden;
@@ -19,7 +19,7 @@
     box-shadow: 0px 8px 16px -4px rgba(0,0,0,0.65);
 }
 
-.card:hover {
+.film:hover {
     -webkit-transform: translateY(-8px);
     transform: translateY(-8px);
     -webkit-transition-duration: 0.3s;
@@ -31,43 +31,35 @@
     cursor: pointer;
 }
 
-.cards h1 {
-    color: white;
-    font-size: 16px;
+.film h1 {
+    color: #000;
+    font-size: 24px;
 }
 
-.title-bg {
-    overflow: hidden;
+.imageContainer {
+    flex: 1 30%;
+    margin-right: 1rem;
+    padding: 1rem 1rem;
 }
 
-.card:nth-child(1n+0) .title-bg {
-    background-color: #F5BFD2;
+.filmCover {
+    height: 500px;
+    width: auto;
+    border-radius: 1rem;
 }
 
-.card:nth-child(2n+0) .title-bg {
-    background-color: #E5DB9C;
+.filmInfo {
+    flex: 1 70%;
 }
 
-.card:nth-child(3n+0) .title-bg {
-    background-color: #D0BCAC;
-}
-
-.card:nth-child(4n+0) .title-bg {
-    background-color: #BEB4C5;
-}
-
-.card:nth-child(5n+0) .title-bg {
-    background-color: #E6A57E;
-}
-
-.cards p {
+.film p {
     text-align: left;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 0 12px;
+    font-size: 20px;
+    font-weight: normal;
+    padding: 4px 12px;
 }
 
-.cards p:last-child {
+.film p:last-child {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

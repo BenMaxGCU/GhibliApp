@@ -1,27 +1,25 @@
-import useFetch from './hooks/useFetch';
+import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import Movie from './components/Movie';
 import Card from './components/Card';
 import GhibliLogo from './studio-ghibli-logo.svg';
 import Wave from './wave.svg';
 import './App.css';
 
-const url = `https://ghibliapi.herokuapp.com/films`;
-
 function App() {
-  const { data, error } = useFetch(url);
-
-  return error ? 
-  (
-    <div>
-      <h1>Oops! An error occured.</h1>
-    </div>
-  )
-  : (
+  return (
     <div>
       <div className="waves">
         <img src={Wave} alt='coloured wave shape' className="wave" />
       </div>
-      <img src={GhibliLogo} alt="Studio Ghibli Logo" className="logo" />
-      <Card data={data} />
+      <Router>
+        <Link to="/">
+          <img src={GhibliLogo} alt="Studio Ghibli Logo" className="logo" />
+        </Link>
+        <Switch>
+          <Route path="/" exact component={Card} />
+          <Route path="/details/:filmTitle/:filmYear" component={Movie} />
+        </Switch>
+      </Router>
     </div>
   );
 }
