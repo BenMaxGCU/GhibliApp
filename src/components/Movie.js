@@ -1,6 +1,6 @@
 import { Suspense, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Loader from 'react-loader-spinner';
+import { CircleLoader } from 'react-spinners';
 import './Movie.css';
 
 //const movieUrl = formattedTitle => `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&query=${formattedTitle}`;
@@ -40,10 +40,10 @@ function Movie({ match }) {
   console.log(data);
 
   return error ? (<></>) 
-  : !isLoaded ? (<div className='loaderContainer'><Loader /></div>) : 
+  : !isLoaded ? (<div className='loaderContainer'><CircleLoader /></div>) : 
   (
     <div className='container'>
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={<CircleLoader />}>
       {data.map((film) => (
         <Link to={{ pathname: `https://www.themoviedb.org/movie/${film.id}` }} target="_blank">
         <div className='film' key={film.id}>
