@@ -7,6 +7,12 @@
     list-style-type: none;
 }
 
+.ratingContainer {
+    max-width: 7rem;
+    max-height: 7rem;
+    padding: 4px 12px;
+}
+
 .film {
     position: relative;
     display: flex;

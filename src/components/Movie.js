@@ -1,10 +1,9 @@
 import { Suspense, useState, useEffect } from 'react';
+import { PieChart } from 'react-minimal-pie-chart';
 import { Link } from 'react-router-dom';
 import { CircleLoader } from 'react-spinners';
 import './Movie.css';
 
-//const movieUrl = formattedTitle => `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&query=${formattedTitle}`;
-//const movieUrl = formattedTitle => `https://api.themoviedb.org/3/search/movie?query=${formattedTitle}&api_key=${process.env.REACT_APP_MOVIE_API_KEY}`;
 const movieUrl = (formattedTitle, filmYear) => `https://api.themoviedb.org/3/search/movie?query=${formattedTitle}&api_key=${process.env.REACT_APP_MOVIE_API_KEY}&year=${filmYear}&include_adult=false`;
 
 function Movie({ match }) {
@@ -15,9 +14,6 @@ function Movie({ match }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [data, setData] = useState([]);
 
-  // Note: the empty deps array [] means
-  // this useEffect will run once
-  // similar to componentDidMount()
   useEffect(() => {
     fetch(movieUrl(formattedTitle, filmYear))
       .then(res => res.json())
@@ -37,8 +33,6 @@ function Movie({ match }) {
       // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formattedTitle, filmYear]);
 
-  console.log(data);
-
   return error ? (<></>) 
   : !isLoaded ? (<div className='loaderContainer'><CircleLoader /></div>) : 
   (
@@ -52,7 +46,21 @@ function Movie({ match }) {
             </div>
             <div className='filmInfo'>
                 <h1>{film.title}</h1>
-                <p>Average Rating: {film.vote_average}</p>
+                <div className='ratingContainer'>
+                  <PieChart 
+                    data={[{ value: film.vote_average, color: '#fad2e1'}]}
+                    label={({ dataEntry }) => dataEntry.value + '/10'}
+                    totalValue={10}
+                    lineWidth={30}
+                    labelStyle={{
+                      fontSize: '1.2rem',
+                      fontWeight: '600',
+                      fill: '#000',
+                    }}
+                    labelPosition={0}
+                    animate
+                  />
+                </div>
                 <p>Initial Release: {film.release_date}</p>
                 <p>Description:</p>
                 <p>{film.overview}</p>
