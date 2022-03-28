@@ -1,115 +1,112 @@
 .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80vw, 1fr));
+  gap: 2rem;
+  margin: 4rem 10vw;
+  padding: 0;
+  list-style-type: none;
+}
+
+.ratingContainer {
+  max-width: 7rem;
+  max-height: 7rem;
+  padding: 4px 12px;
+}
+
+.film {
+  position: relative;
+  display: flex;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  text-decoration: none;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 8px 16px -4px rgba(0, 0, 0, 0.65);
+  box-shadow: 0px 8px 16px -4px rgba(0, 0, 0, 0.65);
+}
+
+.film:hover {
+  -webkit-transform: translateY(-8px);
+  transform: translateY(-8px);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  cursor: pointer;
+}
+
+.film h1 {
+  color: #000;
+  font-size: 24px;
+}
+
+.imageContainer {
+  flex: 1 30%;
+  margin-right: 1rem;
+  padding: 1rem 1rem;
+}
+
+.filmCover {
+  height: 500px;
+  width: auto;
+  border-radius: 1rem;
+}
+
+.filmInfo {
+  flex: 1 70%;
+}
+
+.film p {
+  text-align: left;
+  font-size: 20px;
+  font-weight: normal;
+  padding: 4px 12px;
+}
+
+.film p:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 8; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  padding-bottom: 4px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 800px) {
+  .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(1000px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     gap: 2rem;
     margin: 4rem 10vw;
     padding: 0;
     list-style-type: none;
-}
-
-.ratingContainer {
-    max-width: 7rem;
-    max-height: 7rem;
-    padding: 4px 12px;
-}
-
-.film {
-    position: relative;
-    display: flex;
-    height: 100%;  
-    border-radius: 1rem;
-    overflow: hidden;
-    text-decoration: none;
-    background-color: #fff;
-    -webkit-box-shadow: 0px 8px 16px -4px rgba(0,0,0,0.65); 
-    box-shadow: 0px 8px 16px -4px rgba(0,0,0,0.65);
-}
-
-.film:hover {
-    -webkit-transform: translateY(-8px);
-    transform: translateY(-8px);
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: transform;
-    transition-property: transform;
-    -webkit-transition-timing-function: ease-out;
-    transition-timing-function: ease-out;
-    cursor: pointer;
-}
-
-.film h1 {
-    color: #000;
-    font-size: 24px;
-}
-
-.imageContainer {
-    flex: 1 30%;
-    margin-right: 1rem;
-    padding: 1rem 1rem;
-}
-
-.filmCover {
-    height: 500px;
-    width: auto;
-    border-radius: 1rem;
-}
-
-.filmInfo {
-    flex: 1 70%;
-}
-
-.film p {
-    text-align: left;
-    font-size: 20px;
-    font-weight: normal;
-    padding: 4px 12px;
-}
-
-.film p:last-child {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 8; /* number of lines to show */
-    -webkit-box-orient: vertical;
-    padding-bottom: 4px;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-@media (max-width: 800px) {
-    .container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-        gap: 2rem;
-        margin: 4rem 10vw;
-        padding: 0;
-        list-style-type: none;
-    }
-
-    .filmCover {
-        height: auto;
-        width: 17rem;
-        border-radius: 1rem;
-    }
-    
-    .film {
-      flex-direction: column;
-    }
   }
 
-  @media only screen 
-  and (min-device-width: 834px) 
-  and (max-device-width: 1112px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-    .container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
-        gap: 2rem;
-        margin: 4rem 10vw;
-        padding: 0;
-        list-style-type: none;
-    }
+  .filmCover {
+    height: auto;
+    width: 17rem;
+    border-radius: 1rem;
+  }
+
+  .film {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-device-width: 834px) and (max-device-width: 1112px) and (-webkit-min-device-pixel-ratio: 2) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+    gap: 2rem;
+    margin: 4rem 10vw;
+    padding: 0;
+    list-style-type: none;
+  }
 }
